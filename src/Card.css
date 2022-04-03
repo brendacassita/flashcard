@@ -1,0 +1,110 @@
+@property --rotate {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 132deg;
+   }
+
+:root {
+  --card-height: 35vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+
+body {
+  min-height: 10vh;
+  background: #4b288d;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 10rem;
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+
+.card {
+  background: hsl(313, 91%, 68%);
+  color: rgb(56, 8, 58);
+  width: var(--card-width);
+  /* var(--card-width); */
+  height: 100px;
+  /* var(--card-height); */
+  padding: 20px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex ;
+  flex-direction: row;
+  font-size: 1.5em;
+  color: rgba(13, 14, 4, 0);
+  cursor: crosshair;
+
+}
+
+.card:hover {
+  color: rgb(56, 8, 58);
+  transition: color 1.5s;
+
+}
+
+/* .card:hover:before, .card:hover:after {
+  animation: none; 
+  opacity: 0;
+} */
+
+
+.card::before {
+  content: "";
+  width: 105%;
+  height: 105%;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #e77af5, #e33cd5 43%, #f810d1);
+    position: absolute;
+    z-index: -1;
+    top: -3%;
+    left: -2%;
+    animation: spin 4.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 7);
+  left: 5;
+  right: 5;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.9);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #5ddcff, #6e8be4 43%, #945de7);
+    opacity: 1;
+  transition: opacity 100s;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+a {
+  color: #1133b1;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 10rem;
+}
+

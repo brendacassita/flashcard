@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import Flashcard from './Flashcard';
+import Container from './Container';
+// import Badge from '.Badge';
+import Button from './Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="card">
+    
+    
+    <Container >
+    <Flashcard question="last index in a string is?" answer="string.length-1"/>
+    </Container>
+
+    <hr/>
+    <Container >
+    <Flashcard question="split() method does what?" answer="splits string into array of substring and returns new array"/>
+    </Container>
+
+    <Container >
+    <Flashcard question="question here" answer="answer here"/>
+    </Container>
+
+    <Container >
+    <Flashcard question="question here" answer="answer here"/>
+    </Container>
+
+    <Container >
+    <Flashcard question="question here" answer="answer here"/>
+    </Container>
+
+
+    
     </div>
   );
 }
